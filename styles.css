@@ -1,21 +1,3 @@
-/* Tailwind Configuration (from original inline script) */
-/* This block is required to define custom colors and fonts,
-   but since it's now in a static file, we assume the actual
-   tailwind CLI or build process would incorporate it. 
-   For CDN-based setups, you might need a different approach 
-   or keep it in the HTML head. I'm placing it here for separation, 
-   but it relies on the JS-based Tailwind CDN being present in index.html.
-   A better approach for production is using a local Tailwind build. 
-*/
-/* --- START Tailwind Config Placeholder (Relies on Tailwind CDN) --- */
-/*
-If you use a local Tailwind build (recommended for production):
-1. Remove the Tailwind CDN script from index.html.
-2. Ensure your local build uses this configuration.
-3. Keep the custom CSS below.
-*/
-/* --- END Tailwind Config Placeholder --- */
-
 /* Utility */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -65,7 +47,7 @@ body { min-height: 250vh; }
 
 /* === SECTION KARTU === */
 #features-section { position: relative; z-index: 10; margin-top: -30vh; background-color: #FFFFFF; }
- 
+
 .product-card-detail { 
     height: 100%; 
     display: flex; 
@@ -73,7 +55,7 @@ body { min-height: 250vh; }
     justify-content: space-between; 
     transition: all 0.5s ease-in-out; 
 }
- 
+
 /* Image default state (stacked) */
 .product-card-image { 
     height: 55%; 
@@ -82,7 +64,7 @@ body { min-height: 250vh; }
     overflow: hidden; 
     transition: all 0.5s ease-in-out;
 }
- 
+
 /* Info default state (stacked) */
 .product-info { 
     padding-top: 1rem; 
@@ -97,7 +79,7 @@ body { min-height: 250vh; }
 .product-price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: 1rem; }
 .price-item { padding: .5rem; border-radius: .5rem; background-color: #EFEFEF; }
 .price-item.points { background-color: #EFEFEF; grid-column: span 2; }
- 
+
 /* Container untuk deskripsi dan detail tambahan */
 .info-content-wrapper { flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-end; }
 .product-main-description { margin-bottom: 1rem; }
@@ -105,7 +87,7 @@ body { min-height: 250vh; }
 
 
 /* --- STYLES FOR EXPANDED CARD VIEW (LAYOUT & ALIGNMENT FIX) --- */
- 
+
 /* Styles for the expanded card detail container */
 .product-card-detail.is-expanded {
     flex-direction: row; /* Change to side-by-side */
@@ -113,21 +95,21 @@ body { min-height: 250vh; }
     gap: 2rem;
     padding: 3rem; 
 }
- 
+
 /* Adjust image size in expanded view */
 .product-card-detail.is-expanded .product-card-image {
     height: 100%; /* Take full height of the row */
     min-width: 40%; max-width: 40%; /* Take 40% of the card width */
     border-radius: 1.5rem; 
 }
- 
+
 /* Adjust info section in expanded view */
 .product-card-detail.is-expanded .product-info {
     padding-top: 0;
     flex-grow: 1;
     justify-content: flex-start; /* FIX: Konten info rata atas */
 }
- 
+
 /* Fix the line-clamp to show full description when expanded */
 .product-card-detail.is-expanded .line-clamp-2 {
     display: block;
@@ -148,7 +130,7 @@ body { min-height: 250vh; }
 .product-card-detail.is-expanded .product-main-description {
     margin-bottom: 0.5rem; /* Kurangi margin bawah deskripsi utama */
 }
- 
+
 /* Styling untuk detail tambahan */
 .expanded-details h4 {
     font-weight: 700;
@@ -162,7 +144,7 @@ body { min-height: 250vh; }
 .flex-shrink-0 {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
- 
+
 /* Dim/Disable other cards */
 #features-section.is-card-open .flex-shrink-0:not(.is-selected) {
     opacity: 0.3;
@@ -189,15 +171,15 @@ body { min-height: 250vh; }
 
 /* === FIX: Judul 'Kebutuhan Harian' nyatu ke background === */
 .stacking-pin-title-wrapper{
-    background-color: transparent !important;   /* hapus putihnya */
-    box-shadow: none !important;       /* hapus bayangan/garis bawah */
-    padding: 0 !important;             /* buang padding luar */
+        background-color: transparent !important;  /* hapus putihnya */
+        box-shadow: none !important;               /* hapus bayangan/garis bawah */
+        padding: 0 !important;                     /* buang padding luar */
 }
 
 /* Kasih jarak vertikalnya di dalam konten aja */
 #stackingPinTitleWrapper > .max-w-7xl,
 #stackingPinTitleWrapper > .w-full{
-    padding: 3rem 0 1.25rem 0; /* atas 32px, bawah 20px */
+        padding: 3rem 0 1.25rem 0; /* atas 32px, bawah 20px */
 }
 
 /* === SECTION STICKY STACKING BARU (Section 4) === */
@@ -299,41 +281,41 @@ body { min-height: 250vh; }
 
 /* Clamp helper: pakai 5 baris di mobile, naik jadi 9 baris di ≥ md */
 .ts-clamp {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
 }
 .ts-clamp-5 { -webkit-line-clamp: 5; }
 @media (min-width: 768px){
-    .ts-clamp-5 { -webkit-line-clamp: 9; }
+        .ts-clamp-5 { -webkit-line-clamp: 9; }
 }
 
 /* Tuning mobile */
 @media (max-width: 767.98px){
-    #testimonial-section h2{
-        font-size: 1.75rem;    /* ~text-2xl */
-        line-height: 1.2;
-        margin-bottom: 1.25rem;
-    }
-    #tsInner{ gap: 1rem !important; }
-    .ts-card{
-        width: 88vw !important;    /* lebih lebar di mobile */
-        padding: 1.25rem !important;  /* p-5 */
-        border-radius: 1.25rem !important;
-    }
-    .ts-card img{ width: 48px; height: 48px; } /* avatar kecil di mobile */
-    .ts-card p{ font-size: 1rem; line-height: 1.65; } /* text-base */
-    #tsDots button{ width: 9px; height: 9px; } /* easier tap */
+        #testimonial-section h2{
+                font-size: 1.75rem;    /* ~text-2xl */
+                line-height: 1.2;
+                margin-bottom: 1.25rem;
+        }
+        #tsInner{ gap: 1rem !important; }
+        .ts-card{
+                width: 88vw !important;       /* lebih lebar di mobile */
+                padding: 1.25rem !important;  /* p-5 */
+                border-radius: 1.25rem !important;
+        }
+        .ts-card img{ width: 48px; height: 48px; } /* avatar kecil di mobile */
+        .ts-card p{ font-size: 1rem; line-height: 1.65; } /* text-base */
+        #tsDots button{ width: 9px; height: 9px; } /* easier tap */
 }
 
 /* ukuran & rendering ikon biar pasti tampil */
 .nav-icon{
-    display: block;
-    width: 1.25rem;  /* fallback jika atribut width hilang */
-    height: 1.25rem;
+        display: block;
+        width: 1.25rem;  /* fallback jika atribut width hilang */
+        height: 1.25rem;
 }
 @media (min-width: 768px){
-    .nav-icon{ width: 1.375rem; height: 1.375rem; }
+        .nav-icon{ width: 1.375rem; height: 1.375rem; }
 }
 
 /* ==== TESTIMONIAL NAV: aman Safari, panah di luar container tanpa overflow ==== */
@@ -341,26 +323,26 @@ body { min-height: 250vh; }
 /* Samakan dengan lebar kontainer konten testimoni kamu.
    max-w-7xl Tailwind = 80rem (1280px). Ubah nilai ini kalau nanti ganti container. */
 :root{
-    --ts-container: 80rem;
+        --ts-container: 80rem;
 }
 
 /* Pastikan section bisa jadi "clipping context" untuk cegah horizontal scroll */
 #testimonial-section{
-    position: relative;
-    overflow-x: clip; /* Safari/Chrome modern */
+        position: relative;
+        overflow-x: clip; /* Safari/Chrome modern */
 }
 @supports not (overflow: clip){
-    #testimonial-section{ overflow-x: hidden; } /* fallback */
+        #testimonial-section{ overflow-x: hidden; } /* fallback */
 }
 
 /* Posisikan panah tepat di tepi LUAR kontainer (bukan luar viewport).
    - 16px = jarak aman min dari tepi layar.
    - 24px = offset kecil keluar dari container biar berasa "di luar". */
 .ts-nav-left{
-    left: max(16px, calc((100vw - var(--ts-container)) / 2 - 24px));
+        left: max(16px, calc((100vw - var(--ts-container)) / 2 - 24px));
 }
 .ts-nav-right{
-    right: max(16px, calc((100vw - var(--ts-container)) / 2 - 24px));
+        right: max(16px, calc((100vw - var(--ts-container)) / 2 - 24px));
 }
 
 /* === FOOTER === */
@@ -373,13 +355,13 @@ body { min-height: 250vh; }
 .footer-link-group a:hover { color: #111111; }
 /* FOOTER: hentikan flex items melebar penuh, underline hanya sepanjang teks */
 .footer-link-group { 
-  align-items: flex-start;      /* stop stretch di cross-axis */
+  align-items: flex-start;        /* stop stretch di cross-axis */
 }
 
 .footer-link-group a {
-  align-self: flex-start;        /* tiap link mengikuti lebar konten */
-  width: -moz-fit-content;       /* Firefox */
-  width: fit-content;            /* browser modern */
+  align-self: flex-start;         /* tiap link mengikuti lebar konten */
+  width: -moz-fit-content;        /* Firefox */
+  width: fit-content;             /* browser modern */
 }
 /* Icon-only sosmed */
 .social-icons a {
