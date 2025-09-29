@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mumtas Katalog - CLEAN MONOCHROME (Expanded Final)</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> 
+    
+</head>
+
+<body class="bg-clean-bg text-clean-text font-sans">
+    
+    <section id="hero-pin" class="hero-section w-full">
+        <div id="heroTitleWrapper" class="hero-title-content">
+            <h1 id="heroTitle" class="text-5xl md:text-7xl font-extrabold tracking-tight">Katalog Produk</h1>
+            <h2 id="heroSubtitle" class="text-2xl md:text-3xl font-light text-clean-subtext mb-8">Elevating Halal Lifestyle</h2>
+            <button id="scrollCue" class="inline-flex items-center justify-center w-11 h-11 rounded-full border border-clean-text/25 text-clean-text/80 hover:text-clean-text hover:border-clean-text/40 transition" aria-label="Scroll ke fitur">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="product-photo-card" style="top: 20%; left: 15%;" data-idx="1"><div class="card-content">P01</div></div>
+        <div class="product-photo-card" style="top: 10%; right: 20%;" data-idx="2"><div class="card-content">P02</div></div>
+        <div class="product-photo-card" style="top: 50%; right: 10%;" data-idx="3"><div class="card-content">P03</div></div>
+        <div class="product-photo-card" style="top: 35%; left: 40%; width: 100px; height: 150px;" data-idx="4"><div class="card-content">P04</div></div>
+        <div class="product-photo-card" style="top: 15%; left: 55%;" data-idx="5"><div class="card-content">P05</div></div>
+        <div class="product-photo-card" style="top: 60%; left: 8%; width: 110px; height: 165px;" data-idx="6"><div class="card-content">P06</div></div>
+        <div class="product-photo-card" style="top: 5%; left: 30%; width: 130px; height: 195px;" data-idx="7"><div class="card-content">P07</div></div>
+        <div class="product-photo-card" style="top: 70%; right: 25%; width: 105px; height: 155px;" data-idx="8"><div class="card-content">P08</div></div>
+
+        <div class="mumtas-wrapper" aria-hidden="true">
+            <span id="mumtas-bg" class="mumtas-text-giant">MUMTAS</span> 
+        </div>
+    </section>
+
+    <section id="features-section" class="w-full h-screen relative">
+        <div class="flex items-center justify-between px-8 md:px-24 absolute top-16 left-0 right-0 z-10">
+            <div>
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-2">Pilihan Terbaik.</h1>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-clean-subtext">Produk Halal Terkurasi.</h2>
+            </div>
+            <div id="nav-arrows" class="flex items-center gap-4">
+                <button id="btnPrev" aria-label="Previous" class="w-10 h-10 rounded-full bg-clean-card/80 text-clean-text flex items-center justify-center hover:bg-clean-card/90 transition border border-clean-subtext/20">
+                    <svg class="nav-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 6 L9 12 L15 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+                <button id="btnNext" aria-label="Next" class="w-10 h-10 rounded-full bg-clean-card/80 text-clean-text flex items-center justify-center hover:bg-clean-card/90 transition border border-clean-subtext/20">
+                    <svg class="nav-icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9 6 L15 12 L9 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+
+            </div>
+        </div>
+
+        <button id="close-card-btn" aria-label="Tutup Detail Produk" 
+                class="w-12 h-12 rounded-full bg-clean-card/95 text-clean-text flex items-center justify-center 
+                        hover:bg-clean-card transition border border-clean-subtext/20 shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        
+        <div id="card-scroll-container" class="absolute inset-0 w-full overflow-x-scroll flex items-center gap-6 md:gap-8 snap-x-mandatory no-scrollbar pt-[30vh] pb-16 px-8 md:px-24">
+            <div class="flex-shrink-0 w-8 md:w-24 h-1"></div>
+        </div>
+    </section>
+
+    <section id="cta-section" class="py-24 md:py-32 bg-clean-card text-clean-text">
+        <div class="max-w-4xl mx-auto px-8 md:px-16 text-center">
+            <span class="text-sm font-semibold uppercase text-clean-subtext tracking-widest mb-2 block">DUKUNGAN TERBAIK</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+                Bergabunglah dengan Jaringan Agen Mumtas
+            </h2>
+            <p class="text-lg md:text-xl text-clean-subtext mb-10 max-w-2xl mx-auto">
+                Dapatkan harga spesial, poin reward, pelatihan eksklusif, dan dukungan penuh untuk memulai bisnis produk Halal yang terkurasi.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-clean-bg bg-clean-text hover:bg-[#333333] transition-colors">
+                    Daftar Jadi Agen Sekarang
+                </a>
+                <a href="#" class="inline-flex items-center justify-center px-8 py-3 border border-clean-border text-base font-medium rounded-full text-clean-text bg-clean-bg hover:bg-clean-border transition-colors">
+                    Pelajari Keuntungan (PDF)
+                </a>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="p-4 bg-clean-bg rounded-xl border border-clean-border shadow-sm">
+                    <i class="fas fa-handshake text-2xl text-clean-subtext mb-2"></i>
+                    <h4 class="font-bold text-clean-text mb-1">Margin Tinggi</h4>
+                    <p class="text-sm text-clean-subtext">Potensi keuntungan besar dengan harga agen yang kompetitif.</p>
+                </div>
+                <div class="p-4 bg-clean-bg rounded-xl border border-clean-border shadow-sm">
+                    <i class="fas fa-medal text-2xl text-clean-subtext mb-2"></i>
+                    <h4 class="font-bold text-clean-text mb-1">Produk Berkualitas</h4>
+                    <p class="text-sm text-clean-subtext">Semua produk sudah terjamin Halal dan terkurasi dengan standar tinggi.</p>
+                </div>
+                <div class="p-4 bg-clean-bg rounded-xl border border-clean-border shadow-sm">
+                    <i class="fas fa-chart-line text-2xl text-clean-subtext mb-2"></i>
+                    <h4 class="font-bold text-clean-text mb-1">Sistem Poin (PV)</h4>
+                    <p class="text-sm text-clean-subtext">Dapatkan reward dan bonus dari setiap akumulasi poin penjualan Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="new-stacking-section" class="w-full relative">
+        <div id="stackingPinTitleWrapper" class="stacking-pin-title-wrapper absolute top-0 left-0 right-0">
+            <div class="w-full px-8 md:px-24 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-2">Kebutuhan Harian.</h1>
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-clean-subtext">Stok Terbaik untuk Keluarga.</h2>
+            </div>
+        </div>
+        
+        <div id="stacking-scroll-container" class="w-full relative">
+            </div>
+    </section>
+
+    <section id="testimonial-section" class="relative py-24 md:py-32 bg-clean-card text-clean-text">
+        <button id="tsPrev" aria-label="Sebelumnya"
+                class="hidden md:flex ts-nav-left items-center justify-center w-14 h-14 rounded-full bg-clean-bg/90 border border-clean-border shadow-xl hover:bg-clean-card transition
+                        absolute top-1/2 -translate-y-1/2 z-20">
+                <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 6 L9 12 L15 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+        </button>
+        <button id="tsNext" aria-label="Berikutnya"
+                class="hidden md:flex ts-nav-right items-center justify-center w-14 h-14 rounded-full bg-clean-bg/90 border border-clean-border shadow-xl hover:bg-clean-card transition
+                        absolute top-1/2 -translate-y-1/2 z-20">
+                <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9 6 L15 12 L9 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+        </button>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-10 text-center">
+                Apa Kata Mitra Kami?
+            </h2>
+
+            <div id="tsTrack" class="relative overflow-visible">
+                <div id="tsInner" class="flex gap-7 md:gap-8 transition-transform duration-500 ease-out will-change-transform">
+
+                    <article class="ts-card shrink-0 w-[88vw] sm:w-[70vw] md:w-[44vw] lg:w-[420px] xl:w-[460px] aspect-square
+                                     bg-clean-bg p-7 md:p-9 rounded-3xl shadow-2xl border border-clean-border">
+                        <div class="h-full flex flex-col">
+                            <div class="flex items-center gap-4 mb-5">
+                                <img src="https://i.pravatar.cc/96?img=12" alt="Ahmad Fikri" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover" />
+                                <div>
+                                    <h4 class="font-bold text-lg">Ahmad Fikri</h4>
+                                    <p class="text-xs text-clean-subtext">Agen Premium – Jakarta Selatan</p>
+                                </div>
+                            </div>
+                            <p class="ts-clamp ts-clamp-5 text-base sm:text-lg md:text-xl text-clean-text leading-relaxed">
+                                “Bergabung dengan Mumtas adalah keputusan terbaik. Produknya berkualitas, marginnya kompetitif, dan yang terpenting: yakin menjual produk Halal yang dikurasi.”
+                            </p>
+                            <div class="mt-auto pt-4 text-xs text-clean-subtext">Kemitraan 3 tahun</div>
+                        </div>
+                    </article>
+
+                    <article class="ts-card shrink-0 w-[88vw] sm:w-[70vw] md:w-[44vw] lg:w-[420px] xl:w-[460px] aspect-square
+                                     bg-clean-bg p-7 md:p-9 rounded-3xl shadow-2xl border border-clean-border">
+                        <div class="h-full flex flex-col">
+                            <div class="flex items-center gap-4 mb-5">
+                                <img src="https://i.pravatar.cc/96?img=32" alt="Siti Rahma" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover" />
+                                <div>
+                                    <h4 class="font-bold text-lg">Siti Rahma</h4>
+                                    <p class="text-xs text-clean-subtext">Diamond Manager – Bandung</p>
+                                </div>
+                            </div>
+                            <p class="ts-clamp ts-clamp-5 text-base sm:text-lg md:text-xl text-clean-text leading-relaxed">
+                                “Sistem poinnya jelas, materi pelatihan rapi, dan dukungan tim solid. Omzet bulanan naik konsisten.”
+                            </p>
+                            <div class="mt-auto pt-4 text-xs text-clean-subtext">Naik pangkat 2x dalam 8 bulan</div>
+                        </div>
+                    </article>
+
+                    <article class="ts-card shrink-0 w-[88vw] sm:w-[70vw] md:w-[44vw] lg:w-[420px] xl:w-[460px] aspect-square
+                                     bg-clean-bg p-7 md:p-9 rounded-3xl shadow-2xl border border-clean-border">
+                        <div class="h-full flex flex-col">
+                            <div class="flex items-center gap-4 mb-5">
+                                <img src="https://i.pravatar.cc/96?img=5" alt="Rizky Maulana" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover" />
+                                <div>
+                                    <h4 class="font-bold text-lg">Rizky Maulana</h4>
+                                    <p class="text-xs text-clean-subtext">Sub Stokis – Surabaya</p>
+                                </div>
+                            </div>
+                            <p class="ts-clamp ts-clamp-5 text-base sm:text-lg md:text-xl text-clean-text leading-relaxed">
+                                “Distribusi lebih rapi. Tools katalog &amp; VO memudahkan rekrut dan repeat order.”
+                            </p>
+                            <div class="mt-auto pt-4 text-xs text-clean-subtext">+120 member aktif di jaringan</div>
+                        </div>
+                    </article>
+
+                    <article class="ts-card shrink-0 w-[88vw] sm:w-[70vw] md:w-[44vw] lg:w-[420px] xl:w-[460px] aspect-square
+                                     bg-clean-bg p-7 md:p-9 rounded-3xl shadow-2xl border border-clean-border">
+                        <div class="h-full flex flex-col">
+                            <div class="flex items-center gap-4 mb-5">
+                                <img src="https://i.pravatar.cc/96?img=15" alt="Nur Aini" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover" />
+                                <div>
+                                    <h4 class="font-bold text-lg">Nur Aini</h4>
+                                    <p class="text-xs text-clean-subtext">Agen – Yogyakarta</p>
+                                </div>
+                            </div>
+                            <p class="ts-clamp ts-clamp-5 text-base sm:text-lg md:text-xl text-clean-text leading-relaxed">
+                                “Produk household-nya kepake harian. Repeat order gampang diprediksi, bonusnya kerasa.”
+                            </p>
+                            <div class="mt-auto pt-4 text-xs text-clean-subtext">Retention 78% pelanggan</div>
+                        </div>
+                    </article>
+
+                    <article class="ts-card shrink-0 w-[88vw] sm:w-[70vw] md:w-[44vw] lg:w-[420px] xl:w-[460px] aspect-square
+                                     bg-clean-bg p-7 md:p-9 rounded-3xl shadow-2xl border border-clean-border">
+                        <div class="h-full flex flex-col">
+                            <div class="flex items-center gap-4 mb-5">
+                                <img src="https://i.pravatar.cc/96?img=47" alt="Taufik Hidayat" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover" />
+                                <div>
+                                    <h4 class="font-bold text-lg">Taufik Hidayat</h4>
+                                    <p class="text-xs text-clean-subtext">Manager – Medan</p>
+                                </div>
+                            </div>
+                            <p class="ts-clamp ts-clamp-5 text-base sm:text-lg md:text-xl text-clean-text leading-relaxed">
+                                “Acara offline &amp; webinar bantu tim saya leveling up. Materi brand-nya rapi dan elegan.”
+                            </p>
+                            <div class="mt-auto pt-4 text-xs text-clean-subtext">Growth jaringan 35%/kuartal</div>
+                        </div>
+                    </article>
+
+                    <article class="ts-card shrink-0 w-[88vw] sm:w-[70vw] md:w-[44vw] lg:w-[420px] xl:w-[460px] aspect-square
+                                     bg-clean-bg p-7 md:p-9 rounded-3xl shadow-2xl border border-clean-border">
+                        <div class="h-full flex flex-col">
+                            <div class="flex items-center gap-4 mb-5">
+                                <img src="https://i.pravatar.cc/96?img=23" alt="Dewi Karina" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover" />
+                                <div>
+                                    <h4 class="font-bold text-lg">Dewi Karina</h4>
+                                    <p class="text-xs text-clean-subtext">Crown Manager – Bekasi</p>
+                                </div>
+                            </div>
+                            <p class="ts-clamp ts-clamp-5 text-base sm:text-lg md:text-xl text-clean-text leading-relaxed">
+                                “Brandingnya clean, katalog mudah dipakai, dan dukungan HQ responsif. Jualan jadi menyenangkan.”
+                            </p>
+                            <div class="mt-auto pt-4 text-xs text-clean-subtext">Closing tertinggi Q2 2025</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div id="tsDots" class="flex items-center justify-center gap-2 mt-8"></div>
+
+            <p class="text-sm text-clean-subtext mt-10 text-center">
+                Lihat lebih banyak kisah sukses mitra kami →
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-clean-bg border-t border-clean-border py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-8 md:px-16">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 text-sm">
+                
+                <div class="col-span-2 md:col-span-1">
+                    <h3 class="text-lg font-bold mb-3 text-clean-text">MUMTAS</h3>
+                    <p class="text-clean-subtext">
+                        Produk Halal Terkurasi untuk gaya hidup Islami yang lebih baik. <br> <em>Elevating Halal Lifestyle.</em>
+                    </p>
+                </div>
+
+                <div class="footer-link-group flex flex-col">
+                    <h4 class="text-clean-text font-semibold mb-3">Akses Cepat</h4>
+                    <a class="hover-underline-ltr" href="#">Tentang Kami</a>
+                    <a class="hover-underline-ltr" href="#">Bergabung Jadi Agen</a>
+                    <a class="hover-underline-ltr" href="#">Berita &amp; Artikel</a>
+                    <a class="hover-underline-ltr" href="#">Karir</a>
+                </div>
+
+                <div class="footer-link-group flex flex-col">
+                    <h4 class="text-clean-text font-semibold mb-3">Kategori</h4>
+                    <a class="hover-underline-ltr" href="#">Herbal &amp; Suplemen</a>
+                    <a class="hover-underline-ltr" href="#">Perawatan Tubuh</a>
+                    <a class="hover-underline-ltr" href="#">Makanan &amp; Minuman</a>
+                    <a class="hover-underline-ltr" href="#">Fashion Muslim</a>
+                </div>
+
+                <div class="footer-link-group flex flex-col">
+                    <h4 class="text-clean-text font-semibold mb-3">Legal &amp; Bantuan</h4>
+                    <a class="hover-underline-ltr" href="#">Kebijakan Privasi</a>
+                    <a class="hover-underline-ltr" href="#">Syarat &amp; Ketentuan</a>
+                    <a class="hover-underline-ltr" href="#">FAQ (Bantuan)</a>
+                    <a class="hover-underline-ltr" href="#">Sertifikasi Halal</a>
+                </div>
+
+                <div class="footer-link-group flex flex-col">
+                    <h4 class="text-clean-text font-semibold mb-3">Hubungi Kami</h4>
+                    <p class="text-clean-subtext mb-4">
+                        <a href="mailto:info@mumtas.com" class="hover:text-clean-text hover-underline-ltr">info@mumtas.com</a> <br>
+                        <a href="tel:+628123456789" class="hover:text-clean-text hover-underline-ltr">+62 812-3456-789</a>
+                    </p>
+
+                    <div class="social-icons flex gap-2">
+                        <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="TikTok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-clean-border mt-12 pt-6 text-center">
+                <p class="text-xs text-clean-subtext">
+                    &copy; 2025 Mumtas Katalog. Hak Cipta Dilindungi Undang-Undang. <br>
+                    Dibuat dengan semangat Halal Lifestyle.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
