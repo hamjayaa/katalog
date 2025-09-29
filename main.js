@@ -32,7 +32,7 @@ gsap.registerPlugin(ScrollTrigger);
 // - composition & usage: Paragraf detail (muncul di expanded view)
 
 const horizontalProductsData = [
-    // PRODUK 1: MADU
+    // PRODUK 1: MADU (WAJIB ADA)
     { 
         title: "Madu Hutan Murni (250ml)", 
         price: "95.000", 
@@ -44,7 +44,7 @@ const horizontalProductsData = [
         composition: "100% Madu Hutan Murni (tanpa campuran gula atau pemanis buatan). Jaminan Halal dan keaslian.",
         usage: "Minum 1 sendok makan setiap pagi dan malam. Dapat dicampur dengan air hangat atau teh herbal."
     },
-    // PRODUK 2: GAMIS
+    // PRODUK 2: GAMIS (WAJIB ADA)
     { 
         title: "Gamis Syar'i Aulia Series", 
         price: "280.000", 
@@ -56,7 +56,7 @@ const horizontalProductsData = [
         composition: "Material: Katun Jepang Grade A. Jahitan kuat dan rapi standar butik. Tersedia 4 pilihan warna: Black, Navy, Maroon, Dusty Pink.",
         usage: "Cuci tangan atau mesin dengan mode lembut. Hindari pemutih kuat. Jemur di tempat teduh."
     },
-    // PRODUK 3: NUGGET
+    // PRODUK 3: NUGGET (WAJIB ADA)
     { 
         title: "Nugget Ayam Crispy (500gr)", 
         price: "45.000", 
@@ -68,7 +68,7 @@ const horizontalProductsData = [
         composition: "70% Daging Ayam Fillet, Tepung Roti Halal, Bumbu Rempah Alami. BPOM RI MD 245009001018.",
         usage: "Goreng dalam minyak panas sedang selama 3-4 menit hingga cokelat keemasan. Simpan di freezer."
     },
-    // PRODUK 4: HABBATUSSAUDA
+    // PRODUK 4: HABBATUSSAUDA (WAJIB ADA)
     { 
         title: "Minyak Habbatussauda Gold", 
         price: "120.000", 
@@ -565,7 +565,7 @@ function createStackingSlideHTML(data, index) {
 function generateHorizontalCards() {
     const container = document.getElementById('card-scroll-container');
     
-    // Hapus semua kecuali penutup akhir (w-8 md:w-24 h-1)
+    // Amankan filler end card (w-8 md:w-24 h-1)
     const fillerEnd = container.lastElementChild; 
     container.innerHTML = ''; 
 
@@ -628,7 +628,8 @@ function setupCardExpansion() {
     const originalWidthData = new Map();
 
     function getCardWrappers() {
-        return Array.from(scrollContainer.children).filter(el => !el.classList.contains('h-1') && el.id.startsWith('card-wrapper-'));
+        // Ambil semua elemen card (kecuali filler terakhir)
+        return Array.from(scrollContainer.children).filter(el => !el.classList.contains('h-1'));
     }
 
     function getOriginalWidthData(cardElement) {
@@ -710,6 +711,7 @@ function setupCardExpansion() {
         cardWrappers.forEach(card => {
             getOriginalWidthData(card); 
             
+            // Re-attach event listeners
             card.removeEventListener('click', handleCardClick);
             card.addEventListener('click', handleCardClick);
         });
@@ -811,7 +813,8 @@ function setupCtaAnimation() {
 
 function setupNewStackingAnimation() {
     const section = document.getElementById("new-stacking-section");
-    const slides = gsap.utils.toArray(".stacking-product-slide");
+    // Ambil slide setelah digenerate
+    const slides = gsap.utils.toArray("#stacking-scroll-container .stacking-product-slide");
     const totalSlides = slides.length; 
     
     if (totalSlides === 0 || !section) return;
@@ -998,11 +1001,11 @@ document.addEventListener('DOMContentLoaded', () => {
     generateHorizontalCards();
     generateStackingSlides();
 
-    // 2. Inisialisasi semua fungsi (memastikan GSAP dan DOM sudah siap)
+    // 2. Inisialisasi semua fungsi setelah konten digenerate
     setupFloatingText();
     setupHeroScrollAnimation();
     
-    // Perlu diinisialisasi ulang setelah konten horizontal dibuat
+    // Panggil initCardExpansion agar event listener terpasang ke 28 kartu baru
     setupCardScrolling(); 
     setupCardExpansion();
     
@@ -1010,6 +1013,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupNewStackingAnimation(); 
     setupTestimonialsCarousel(); 
     
+    // Pastikan lebar awal tersimpan
     document.querySelectorAll('.flex-shrink-0').forEach(card => {
         card.setAttribute('data-original-width-px', card.getBoundingClientRect().width);
     });
