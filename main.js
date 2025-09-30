@@ -40,7 +40,7 @@ const horizontalProductsData = [
         agentPrice: "75.000", 
         pv: "15", 
         description: "Madu asli dari hutan pilihan, dipanen dengan metode ramah lingkungan, kaya antioksidan.",
-        imageUrl: "https://res.cloudinary.com/demo/image/upload/v1625123456/placeholder_product.jpg", // <-- GANTI DENGAN LINK CLOUDINARY KAMU
+        imageUrl: "https://res.cloudinary.com/doqzgozyt/image/upload/v1758520869/Gamin_Gathuk_lmzvyg.png", // <-- GANTI DENGAN LINK CLOUDINARY KAMU
         mainBenefits: ["Meningkatkan daya tahan tubuh.", "Sumber energi alami non-gula.", "Antioksidan tinggi.", "Menjaga kesehatan pencernaan."],
         composition: "100% Madu Hutan Murni (tanpa campuran gula atau pemanis buatan). Jaminan Halal dan keaslian.",
         usage: "Minum 1 sendok makan setiap pagi dan malam. Dapat dicampur dengan air hangat atau teh herbal."
