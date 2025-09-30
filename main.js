@@ -538,10 +538,6 @@ function createStackingSlideHTML(data, index) {
                         <p class="text-clean-subtext text-base mt-1">
                             ${data.desc}
                         </p>
-                        <ul class="mt-2 text-sm text-clean-subtext list-disc list-inside">
-                            <li>Produk ke-${index} dari ${stackingProductsData.length}.</li>
-                            <li>Halal MUI Certified.</li>
-                        </ul>
                     </div>
                     <div class="stacking-product-price-grid w-1/3">
                         <div class="price-item">
