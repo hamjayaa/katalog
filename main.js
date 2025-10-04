@@ -41,7 +41,7 @@ const horizontalProductsData = [
         pv: "50", 
         description: "Natura Oil Squa merupakan suplemen alami dari minyak hati ikan hiu yang kaya squalene, senyawa penting untuk meningkatkan oksigen dalam sel dan mendukung regenerasi jaringan. Konsumsi rutin membantu menjaga vitalitas, meningkatkan daya tahan tubuh, serta memperkuat sistem kekebalan secara menyeluruh.",
         imageUrl: "https://res.cloudinary.com/doqzgozyt/image/upload/v1758520869/Gamin_Gathuk_lmzvyg.png", // <-- GANTI DENGAN LINK CLOUDINARY KAMU
-        mainBenefits: ["Meningkatkan stamina dan vitalitas.", "Membantu regenerasi sel dan jaringan.", "Mendukung sistem kekebalan tubuh."],
+        mainBenefits: ["<p>Natura Oil Squa merupakan suplemen alami dari minyak hati ikan hiu yang kaya squalene, senyawa penting untuk meningkatkan oksigen dalam sel dan mendukung regenerasi jaringan. Konsumsi rutin membantu menjaga vitalitas, meningkatkan daya tahan tubuh, serta memperkuat sistem kekebalan secara menyeluruh.<p>Meningkatkan stamina dan vitalitas.", "Membantu regenerasi sel dan jaringan.", "Mendukung sistem kekebalan tubuh."],
         composition: "Tiap kapsul lunak mengandung: Squalene (dari minyak hati ikan hiu) 650mg",
         usage: "Dewasa: 1-2 kali sehari 1 kapsul lunak atau sesuai dengan petunjuk dokter."
     },
@@ -494,7 +494,9 @@ function createHorizontalCardHTML(data, index) {
                         <div class="expanded-details">
                             
                             <h4>Manfaat Utama:</h4>
-                            <p class="text-xs text-clean-subtext">${benefitsList || 'Benefit belum diisi.'}</p>
+                            <ul class="list-disc list-inside text-xs text-clean-subtext ml-2">
+                                ${benefitsList}
+                            </ul>
                             
                             <h4>Komposisi/Bahan:</h4>
                             <p class="text-xs text-clean-subtext">${data.composition || 'Data komposisi belum diisi.'}</p>
