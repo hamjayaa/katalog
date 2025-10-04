@@ -35,26 +35,26 @@ gsap.registerPlugin(ScrollTrigger);
 const horizontalProductsData = [
     // PRODUK 1: MADU
     { 
-        title: "Madu Hutan Murni (250ml)", 
-        price: "95.000", 
-        agentPrice: "75.000", 
-        pv: "15", 
-        description: "Madu asli dari hutan pilihan, dipanen dengan metode ramah lingkungan, kaya antioksidan.",
+        title: "Natura Oil Squa (NOS)", 
+        price: "200.000", 
+        agentPrice: "175.000", 
+        pv: "50", 
+        description: "Natura Oil Squa merupakan suplemen alami dari minyak hati ikan hiu yang kaya squalene, senyawa penting untuk meningkatkan oksigen dalam sel dan mendukung regenerasi jaringan. Konsumsi rutin membantu menjaga vitalitas, meningkatkan daya tahan tubuh, serta memperkuat sistem kekebalan secara menyeluruh.",
         imageUrl: "https://res.cloudinary.com/doqzgozyt/image/upload/v1758520869/Gamin_Gathuk_lmzvyg.png", // <-- GANTI DENGAN LINK CLOUDINARY KAMU
-        mainBenefits: ["Meningkatkan daya tahan tubuh.", "Sumber energi alami non-gula.", "Antioksidan tinggi.", "Menjaga kesehatan pencernaan."],
-        composition: "100% Madu Hutan Murni (tanpa campuran gula atau pemanis buatan). Jaminan Halal dan keaslian.",
-        usage: "Minum 1 sendok makan setiap pagi dan malam. Dapat dicampur dengan air hangat atau teh herbal."
+        mainBenefits: ["Meningkatkan stamina dan vitalitas.", "Membantu regenerasi sel dan jaringan.", "Mendukung sistem kekebalan tubuh."],
+        composition: "Tiap kapsul lunak mengandung: Squalene (dari minyak hati ikan hiu) 650mg",
+        usage: "Dewasa: 1-2 kali sehari 1 kapsul lunak atau sesuai dengan petunjuk dokter."
     },
     // PRODUK 2: GAMIS
     { 
-        title: "Gamis Syar'i Aulia Series", 
-        price: "280.000", 
-        agentPrice: "225.000", 
-        pv: "40", 
-        description: "Bahan Katun Jepang Premium, adem, jahitan rapi, desain elegan dan syar'i. Cocok untuk acara formal.", 
+        title: "Gamin Gathuk", 
+        price: "125.000", 
+        agentPrice: "100.000", 
+        pv: "25", 
+        description: "Gamin Gathuk merupakan perpaduan ekstrak ikan gabus yang kaya albumin dan ekstrak gamat yang tinggi kolagen. Kombinasi ini membantu proses regenerasi jaringan, mempercepat penyembuhan luka, serta mendukung fungsi transportasi nutrisi dalam darah untuk kesehatan optimal.", 
         imageUrl: "https://res.cloudinary.com/demo/image/upload/v1625123456/placeholder_product.jpg", // <-- GANTI DENGAN LINK CLOUDINARY KAMU
-        mainBenefits: ["Nyaman & Adem (Katun Jepang).", "Busui Friendly (Resleting Depan).", "Wudhu Friendly (Manset Kancing)."],
-        composition: "Material: Katun Jepang Grade A. Jahitan kuat dan rapi standar butik. Tersedia 4 pilihan warna: Black, Navy, Maroon, Dusty Pink.",
+        mainBenefits: ["Mempercepat penyembuhan luka.", "Merangsang pertumbuhan sel kulit baru.", "Meningkatkan penyerapan nutrisi tubuh."],
+        composition: "Ekstrak Stichopus variegatus 250mg.<p>Ekstrak Channa striata 200mg.",
         usage: "Cuci tangan atau mesin dengan mode lembut. Hindari pemutih kuat. Jemur di tempat teduh."
     },
     // PRODUK 3: NUGGET
