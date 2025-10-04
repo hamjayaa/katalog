@@ -54,8 +54,8 @@ const horizontalProductsData = [
         description: "Gamin Gathuk merupakan perpaduan ekstrak ikan gabus yang kaya albumin dan ekstrak gamat yang tinggi kolagen. Kombinasi ini membantu proses regenerasi jaringan, mempercepat penyembuhan luka, serta mendukung fungsi transportasi nutrisi dalam darah untuk kesehatan optimal.", 
         imageUrl: "https://res.cloudinary.com/demo/image/upload/v1625123456/placeholder_product.jpg", // <-- GANTI DENGAN LINK CLOUDINARY KAMU
         mainBenefits: ["Mempercepat penyembuhan luka.", "Merangsang pertumbuhan sel kulit baru.", "Meningkatkan penyerapan nutrisi tubuh."],
-        composition: "Ekstrak Stichopus variegatus 250mg.<p>Ekstrak Channa striata 200mg.",
-        usage: "Cuci tangan atau mesin dengan mode lembut. Hindari pemutih kuat. Jemur di tempat teduh."
+        composition: "Ekstrak Stichopus variegatus 250mg, Ekstrak Channa striata 200mg.",
+        usage: "Dewasa: 3 kali sehari 1 kapsul. Anak: 1 kali sehari 1 kapsul."
     },
     // PRODUK 3: NUGGET
     { 
@@ -494,9 +494,7 @@ function createHorizontalCardHTML(data, index) {
                         <div class="expanded-details">
                             
                             <h4>Manfaat Utama:</h4>
-                            <ul class="list-disc list-inside text-xs text-clean-subtext ml-2">
-                                ${benefitsList}
-                            </ul>
+                            <p class="text-xs text-clean-subtext">${benefitsList || 'Benefit belum diisi.'}</p>
                             
                             <h4>Komposisi/Bahan:</h4>
                             <p class="text-xs text-clean-subtext">${data.composition || 'Data komposisi belum diisi.'}</p>
